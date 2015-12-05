@@ -22,6 +22,7 @@ app.use(bodyParser.json()); //
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());//处理cookie
 app.use(express.static(path.join(__dirname, 'public')));
+require('./db');
 
 app.use('/', routes);   //根据用户请求的路径不同，调用不同的函数
 app.use('/users', users);
