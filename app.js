@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var articles = require('./routes/articles');
 
 var app = express();
 
@@ -24,7 +25,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);   //根据用户请求的路径不同，调用不同的函数
 app.use('/users', users);
-
+app.use('/articles',articles);
+app.use('/banana',function(req,res){
+  res.ens('banana');
+});
 // catch 404 and forward to error handler   捕捉404错误 并发送至错误处理中间件
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
