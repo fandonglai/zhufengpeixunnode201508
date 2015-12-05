@@ -28,7 +28,7 @@ router.get('/login', function(req, res, next) {
   res.render('user/login',{});
 });
 
-router.post('/login', function(req, res, next) {
+router.post('/reg', function(req, res, next) {
   var user =  req.body;//读取用户提交过来的注册表单
   new Model('User')(user).save(function(err,user){
     if(err){
